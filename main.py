@@ -18,8 +18,13 @@ def clown_react(message):
         print("React")
         bot.set_message_reaction(message.chat.id, message.id, [ReactionTypeEmoji("🤡")])
     else:
-        # print(message.from_user.id)   # Debug snippet
-        # print("Not react")
+        text = message.text.lower()
+        if ("lotto" in text or "lotti" in text) and ("cerco" in text or "compro" in text) and ("%" in text):
+            print("React")
+            bot.set_message_reaction(message.chat.id, message.id, [ReactionTypeEmoji("🤡")])
+        else:
+            print("Not react")
+            pass
         pass
 
 bot.infinity_polling()
